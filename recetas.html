@@ -1,0 +1,42 @@
+<meta charset="UTF-8">
+<h1>Recetas</h1>
+<hr>
+
+<script>
+
+    function saltarlinea(){
+        document.write("<br>")
+    }
+
+    function imprimir(texto){
+        document.write(texto);
+        saltarlinea();
+    }
+
+    var ingredientes = [];
+    var receta = prompt("¿Qué receta quiere hacer?").toUpperCase();
+    var cantidad = parseInt(prompt("¿Cuántos ingredientes va a añadir?"));
+    var contador = 1;
+
+    imprimir("<b>" + receta + "</b>");
+
+    while( contador <= cantidad) {
+        var ingrediente = prompt("Informe el ingrediente " + contador).toUpperCase();
+        repetido=false
+        for(posicion = 0; posicion < ingredientes.length; posicion++){
+            if(ingredientes[posicion]==ingrediente){
+                alert(ingrediente +" ya fue registrado anteriormente, por favor ingrese otro ingrediente.")
+                repetido=true;
+                break;
+            }
+        }  
+
+        if(repetido==false){
+        ingredientes.push(ingrediente);
+        contador++;
+        imprimir(ingrediente)
+        } 
+    }
+    console.log(ingredientes);
+
+</script>
